@@ -9,6 +9,7 @@ import java.util.Scanner;
 
 
 public class everythingCmdApp {
+
     private static Scanner scanner=new Scanner(System.in);
 
     public static void main(String[] args) {
@@ -22,43 +23,44 @@ public class everythingCmdApp {
         while(true){
             System.out.println("everything>>");
             String input=scanner.nextLine();
-            if(input.startsWith("search")){
-                String[] values=input.split(" ");
-                if(values.length>=2) {
-                    if (!values[0].equals("search")) {
-                        help();
-                        continue;
-                    }
-                    Condition condition = new Condition();
-                    String name = values[1];
-                    condition.setName(name);
-                    if (values.length >= 3) {
-                        String filetype = values[2];
-                        condition.setFileType(filetype.toUpperCase());
-                    }
-                    search(manager, condition);
-                        continue;
-                }else{
-                        help();
-                        continue;
-                    }
-                }
+
             switch (input){
-                case"help":
+                case "help":
                     help();
                     break;
                 case"quit":
                     quit();
                     break;
                 case"index":
-                    index(manager);
+                    manager.buildIndex();
                     break;
+                    default:{
+                        if(input.startsWith("search")){
+                            String[] values=input.split(" ");
+                            if(values.length>=2) {
+                                Condition condition=new Condition();
+                           String name=values[1];
+                           condition.setName(name);
+                                if (values.length >= 3) {
+                              String filetype = values[2];
+                                condition.setFileType(filetype.toUpperCase());
+                                }
+                               manager.search(condition).forEach(thing->{
+                                   System.out.println(thing.getPath());
+                               });
 
-                    default:
-                        help();
+                                }
+
+                            }else{
+                                help();
+                                continue;
+                            }
+                        }
+                    }
+
             }
         }
-    }
+
     private static void search(EverythingPlusManager manager,Condition condition){
         System.out.println("检索功能");
         //统一调度器中的searchhelp
