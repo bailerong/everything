@@ -1,5 +1,4 @@
 package com.lele.everything.cmd;
-
 import com.lele.everything.Core.Condition;
 import com.lele.everything.Core.EverythingPlusManager;
 import com.lele.everything.Core.Thing;
@@ -20,7 +19,6 @@ public class everythingCmdApp {
         while(true){
             System.out.println("everything>>");
             String input=scanner.nextLine();
-
             switch (input){
                 case "help":
                     help();
