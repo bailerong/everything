@@ -3,11 +3,8 @@ package com.lele.everything.cmd;
 import com.lele.everything.Core.Condition;
 import com.lele.everything.Core.EverythingPlusManager;
 import com.lele.everything.Core.Thing;
-
 import java.util.List;
 import java.util.Scanner;
-
-
 public class everythingCmdApp {
 
     private static Scanner scanner=new Scanner(System.in);
