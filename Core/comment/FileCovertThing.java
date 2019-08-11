@@ -1,8 +1,6 @@
 package com.lele.everything.Core.comment;
-
 import com.lele.everything.Core.FileType;
 import com.lele.everything.Core.Thing;
-
 import java.io.File;
 //这个函数完成了我们的文件向Thing类型的转化
 public final  class FileCovertThing {
