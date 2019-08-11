@@ -37,7 +37,7 @@ public final  class FileCovertThing {
             return FileType.OTHER;
         }
     }
-
+//测试
     public static void main(String[] args) {
         File file=new File("D:\\java课件");
         Thing thing=FileCovertThing.convert(file);
