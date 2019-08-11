@@ -5,7 +5,6 @@ import java.io.File;
 //这个函数完成了我们的文件向Thing类型的转化
 public final  class FileCovertThing {
     private FileCovertThing() { }
-
     public static Thing convert(File file){
         Thing thing=new Thing();
         thing.setName(file.getName());
