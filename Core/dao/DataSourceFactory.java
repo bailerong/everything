@@ -8,7 +8,7 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 public class DataSourceFactory {
-
+//我们要熟悉单利模式和工厂模式
     //这是我们的数据源，使用工厂模式+单例模式。
     //拒绝用户对其的随意访问
     private static volatile DruidDataSource dataSource;
