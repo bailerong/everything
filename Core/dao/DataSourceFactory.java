@@ -1,8 +1,6 @@
 package com.lele.everything.Core.dao;
-
 import com.alibaba.druid.pool.DruidDataSource;
 import org.h2.Driver;
-
 import javax.sql.DataSource;
 import java.io.*;
 import java.sql.Connection;
@@ -45,47 +43,4 @@ public class DataSourceFactory {
         try (InputStream in = DataSourceFactory.class.getClassLoader().
                 getResourceAsStream("everything.sql");) {
             if (in == null) {
-                //数据库的初始化是必须要进行完成的，如果我们没有执行完成，就要进行报错
-
-                throw new RuntimeException("Not read init database script please check it");
-            }
-            //数据流
-            StringBuilder stringBuilder = new StringBuilder();
-            try (BufferedReader reader = new BufferedReader(new InputStreamReader(in))) {
-                reader.readLine();
-                String line = null;
-                while ((line = reader.readLine()) != null) {
-                    if (!line.startsWith("--")) {
-                        stringBuilder.append(line);
-                    }
-                }
-            }
-            //获取数据库连接和名称执行SQL
-            String sql = stringBuilder.toString();
-            //开启我们的jdbc编程
-            //获取数据库的链接
-            Connection connection=dataSource().getConnection();
-            //创建命令
-            PreparedStatement statement=connection.prepareStatement(sql);
-            statement.execute();
-            connection.close();
-            statement.close();
-        } catch (IOException e) {
-
-        }
-            catch (SQLException e) {
-                e.printStackTrace();
-        }
-}
-
-}
-
-
-
-
-
-
-
-
-
-
+                //数据库的初始化是必须要进
